@@ -3,80 +3,285 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mijn Eerste GitHub Pages Website</title>
+    <title>Ariëlle van Son - Massage, Energetische therapie & Bewustzijn</title>
     <style>
-        /* Basis styling voor een moderne look */
+        /* Kleurenpalet en basisinstellingen */
+        :root {
+            --primary-color: #728c69; /* Saliegroen, rustgevend */
+            --secondary-color: #e8ede6; /* Heel licht groen voor achtergronden */
+            --text-color: #3d403c; /* Zacht donkergrijs, fijner voor de ogen dan puur zwart */
+            --bg-color: #fcfcfb; /* Warm wit */
+        }
+
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            line-height: 1.7;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f9;
-            color: #333;
         }
+
+        /* Header / Bovenkant */
         header {
-            background-color: #24292e; /* GitHub donkergrijs */
-            color: #ffffff;
-            padding: 2rem 0;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 4rem 2rem;
             text-align: center;
         }
-        main {
-            max-width: 800px;
-            margin: 2rem auto;
-            padding: 0 20px;
+
+        header h1 {
+            margin: 0;
+            font-size: 2.8rem;
+            font-weight: 400;
+            letter-spacing: 1px;
+        }
+
+        header h2 {
+            color: white;
+            border: none;
+            font-size: 1.3rem;
+            font-weight: 300;
+            margin-top: 10px;
+        }
+
+        /* Pagina container */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* Tussenkopjes */
+        h2 {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 0.5rem;
+            margin-top: 2.5rem;
+            font-weight: 600;
+        }
+
+        /* Introductie tekst */
+        .intro-text {
+            font-size: 1.1rem;
             background: white;
             padding: 2rem;
             border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
         }
-        h1 {
-            margin-top: 0;
-        }
-        .btn {
-            display: inline-block;
-            background: #2ea44f; /* GitHub groen */
-            color: white;
-            padding: 10px 20px;
-            text-decoration: none;
-            border-radius: 5px;
-            margin-top: 15px;
+
+        .highlight {
             font-weight: bold;
+            color: var(--primary-color);
         }
-        .btn:hover {
-            background: #2c974b;
-        }
-        footer {
-            text-align: center;
+
+        /* Behandelingen Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
             margin-top: 2rem;
-            padding: 1rem 0;
-            color: #777;
+        }
+
+        @media(min-width: 768px) {
+            .services-grid {
+                grid-template-columns: 1fr 1fr; /* Twee kolommen op grotere schermen */
+            }
+        }
+
+        .service-card {
+            background: white;
+            padding: 1.8rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+            border-left: 6px solid var(--primary-color);
+        }
+
+        .service-card h3 {
+            margin-top: 0;
+            color: var(--primary-color);
+            font-size: 1.2rem;
+        }
+
+        /* Praktische Info Grid */
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        @media(min-width: 768px) {
+            .info-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .info-box {
+            background: var(--secondary-color);
+            padding: 1.8rem;
+            border-radius: 8px;
+        }
+
+        .info-box h3 {
+            margin-top: 0;
+            color: var(--primary-color);
+        }
+
+        .info-box ul {
+            padding-left: 20px;
+            margin-bottom: 0;
+        }
+
+        .info-box li {
+            margin-bottom: 8px;
+        }
+
+        /* Ervaringen balk */
+        .ervaringen {
+            text-align: center;
+            font-style: italic;
+            color: var(--primary-color);
+            font-size: 1.1rem;
+            margin: 3rem 0;
+            padding: 1rem;
+            border-top: 1px solid var(--secondary-color);
+            border-bottom: 1px solid var(--secondary-color);
+        }
+
+        /* Contact knop */
+        .contact-btn {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 14px 28px;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: bold;
+            margin-top: 20px;
+            transition: background 0.3s;
+        }
+
+        .contact-btn:hover {
+            background-color: #5a7052;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--text-color);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
             font-size: 0.9rem;
+        }
+
+        footer p {
+            margin: 5px 0;
+            opacity: 0.8;
         }
     </style>
 </head>
 <body>
 
     <header>
-        <h1>Welkom op mijn website!</h1>
-        <p>Gehost, helemaal gratis, via GitHub Pages.</p>
+        <h1>Ariëlle van Son</h1>
+        <h2>Massage, Energetische therapie & Bewustzijn</h2>
     </header>
 
-    <main>
-        <h2>Over deze pagina</h2>
-        <p>Deze website is gemaakt om te testen hoe GitHub Pages werkt. Je kunt deze tekst eenvoudig aanpassen in de code.</p>
+    <div class="container">
         
-        <h2>Wat kun je hierna doen?</h2>
-        <ul>
-            <li>De teksten in de <code>&lt;html&gt;</code> code aanpassen.</li>
-            <li>Nieuwe kleuren kiezen in het <code>&lt;style&gt;</code> gedeelte.</li>
-            <li>Meer bestanden toevoegen, zoals een <code>contact.html</code> of afbeeldingen.</li>
-        </ul>
+        <div class="intro-text">
+            <h2>Welkom in mijn praktijk</h2>
+            <p><strong>Praktijk voor volwassenen, kinderen en baby's</strong></p>
+            <p>Met aandacht, respect en zorg ondersteun ik graag jouw persoonlijk welzijn. De pure, helende energie via mijn handen is een hartverwarmende ervaring!</p>
+            <p>Je kunt bij mij terecht als je niet lekker in je vel zit, je lichamelijk, geestelijk en/of emotioneel meer in balans wilt komen, je stress/angst wilt verminderen, je in een moeilijke levensfase zit, je meer in verbinding met jezelf wilt komen of wanneer je lichamelijke klachten en/of pijn hebt.</p>
+            <p>Staat jouw hulpvraag hier niet genoemd of wil je gewoon eens ervaren wat een sessie voor jou kan betekenen? Voel je van harte welkom een sessie te komen ervaren. Het doel van een sessie is dat je meer harmonie, ontspanning, rust en levensenergie ervaart.</p>
+            <p><em>Ik werk intuïtief en met een groot invoelend vermogen. In overleg bespreken we welke van de onderstaande sessies op dit moment het best passend voor je is.</em></p>
+        </div>
 
-        <a href="https://docs.github.com/en/pages" class="btn" target="_blank">Lees de GitHub Pages Documentatie</a>
-    </main>
+        <h2>Mogelijkheden & Sessies</h2>
+        
+        <div class="services-grid">
+            <div class="service-card">
+                <h3>Helende Verbinding Massage sessie</h3>
+                <p><strong>Van preconceptie tot de geboorte, jouw unieke geboortereis</strong></p>
+                <p>De ervaringen en emoties die je in de pre- en perinatale periode van je leven hebt opgedaan, zijn in je lichaamscellen opgeslagen. Deze kunnen een diepe imprint achterlaten (denk aan belemmerende overtuigingen of de verbinding met jezelf/ouders kwijtraken). Deze massage herstelt de belemmerende overtuigingen en aardse verbinding, zodat er ruimte is voor verandering.<br><em>Duur: maximaal 1½ uur.</em></p>
+            </div>
+
+            <div class="service-card">
+                <h3>Dharma Shamanic System</h3>
+                <p>Een combinatie van de traditionele healing methode van de Tibetaanse- en Aboriginal sjamanen. Een zuivere, natuurlijke en zachte manier van helen die je levensenergie weer vrij laat stromen. Het helpt bij het loslaten van stress, angst en emotioneel lijden, en brengt je terug naar je natuurlijke staat van zijn. Ontwikkeld door José Antonio Manchado.<br><em>Duur: maximaal 1½ uur.</em></p>
+            </div>
+
+            <div class="service-card">
+                <h3>Reconnective Healing® & The Reconnection</h3>
+                <p>Brengt je terug in jouw natuurlijke balans en activeert het zelfhelende vermogen. Werkt met frequenties (energie, licht en informatie) op fysiek, mentaal, emotioneel en spiritueel gebied. Tijdens een sessie word je niet aangeraakt; de uitkomst ontvouwt zich vanzelf. Veel mensen ervaren diepe rust, helderheid of fysieke verlichting.<br><em>Duur: maximaal 1½ uur.</em></p>
+            </div>
+
+            <div class="service-card">
+                <h3>Massage sessie</h3>
+                <p><strong>Voor lichamelijk en geestelijk welbevinden</strong></p>
+                <p>Gun en verwen jezelf met een massage die helemaal is afgestemd op jouw welzijn en op wat jij nodig hebt. Voel hoe spanning wegsmelt, energie weer gaat stromen en je spieren volledig ontspannen. Een liefdevol cadeau aan jezelf.<br><em>Kies voor 1 of 1½ uur volledige aandacht puur voor jezelf.</em></p>
+            </div>
+
+            <div class="service-card">
+                <h3>Shantala Babymassage</h3>
+                <p>Ik begeleid ouders in hoe zij het beste hun baby kunnen aanraken en masseren. Een liefdevolle, aandachtsvolle en laagdrempelige methode om als ouder en kind samen te ontspannen, plezier te hebben en jullie band te versterken. Voor ouders met baby's tussen ca. 6 weken en 9 maanden.</p>
+            </div>
+
+            <div class="service-card">
+                <h3>Training hand- en hoofdmassage</h3>
+                <p>Zeer geschikt voor mensen die werken (als vrijwilliger) in de zorg of als mantelzorger. Ik begeleid je in wat een prettige, fijne manier is om mensen te benaderen die een warme, aandachtsvolle aanraking hard nodig hebben.</p>
+            </div>
+        </div>
+
+        <div class="ervaringen">
+            "Ervaringen na een sessie: rust • bewustwording • in contact met jezelf • relaxed én energiek gevoel • inzichten • diepgang • voelen eigenwaarde • zeer diepe ontspanning."
+        </div>
+
+        <h2>Praktische Informatie</h2>
+
+        <div class="info-grid">
+            <div class="info-box">
+                <h3>Contact & Locatie</h3>
+                <p>Mijn sfeervolle praktijk bevindt zich in Holy Noord.</p>
+                <p><strong>Adres:</strong><br>
+                Amelandhoeve 15<br>
+                3137 GA Vlaardingen - (ZH)</p>
+                <p>Heeft u vragen of wilt u meer informatie? Neem gerust vrijblijvend contact op!</p>
+                <a href="mailto:info@ariellevanson.nl" class="contact-btn">Neem contact op</a>
+            </div>
+
+            <div class="info-box">
+                <h3>Tarieven & Tijden</h3>
+                <ul>
+                    <li><strong>Werkmomenten:</strong> Woensdag en vrijdag (overige dagen in overleg)</li>
+                    <li><strong>Wachtlijst:</strong> Nee</li>
+                    <li><strong>Prijs consult:</strong> € 69,- tot € 96,-</li>
+                    <li><strong>Duur:</strong> 60 of 90 minuten</li>
+                    <li><strong>Vergoeding:</strong> n.v.t.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="info-box" style="margin-top: 1.5rem;">
+            <h3>Achtergrond & Opleidingen</h3>
+            <ul>
+                <li>Dharma Shamanic System I <em>(Mundo Armonia Academy - José Antonio Manchado)</em></li>
+                <li>Helende Verbinding massage <em>(Instituut Jolanda Vleugel en praktijk Sada)</em></li>
+                <li>Reconnective Healing Practitioner <em>(Eric Pearl - grondlegger)</em></li>
+                <li>Energetisch massagetherapeut <em>(opleidingsinstituut IVS)</em></li>
+                <li>Shantalamassage docent <em>(N. de Lange / VSD)</em></li>
+                <li><strong>Beroepsvereniging:</strong> BMS (Belangenvereniging voor Beroepsbeoefenaars in de Massagebranche) & Mundo Armonia fam.</li>
+            </ul>
+        </div>
+
+    </div>
 
     <footer>
-        <p>&copy; 2026 Ariëlle van Son. Gemaakt met HTML en CSS.</p>
+        <p>&copy; 2026 Ariëlle van Son - Energetisch Therapeut</p>
+        <p>Amelandhoeve 15, Vlaardingen</p>
     </footer>
 
 </body>
