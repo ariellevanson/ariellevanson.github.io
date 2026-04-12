@@ -5,284 +5,303 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ariëlle van Son - Massage, Energetische therapie & Bewustzijn</title>
     <style>
-        /* Kleurenpalet en basisinstellingen */
+        /* --- KLEUREN EN LETTERTYPES --- */
         :root {
-            --primary-color: #9b84b5; /* Mooi lilapaars */
-            --secondary-color: #f3eff9; /* Heel licht lila voor achtergronden */
-            --text-color: #4a4a4a; /* Donkergrijs voor tekst */
-            --bg-color: #fdfcfd; /* Warm wit/licht lila voor de hele pagina */
+            --primary-color: #8b73a3; /* Warm lilapaars */
+            --primary-light: #ab95bf; /* Lichter lila voor hover-effecten */
+            --bg-color: #faf8fb; /* Heel zacht warm wit/lila achtergrond */
+            --section-bg: #ffffff; /* Helder wit voor blokken */
+            --text-color: #4a4a4a; /* Zacht donkergrijs, fijner voor de ogen */
+            --accent-color: #e5dff0; /* Subtiel lila voor randjes en accenten */
+        }
+
+        html {
+            scroll-behavior: smooth; /* Zorgt voor zacht scrollen bij het klikken op het menu */
         }
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             color: var(--text-color);
             background-color: var(--bg-color);
-            line-height: 1.7;
+            line-height: 1.8;
             margin: 0;
             padding: 0;
         }
 
-        /* Header / Bovenkant */
-        header {
-            background-color: var(--primary-color);
-            color: white;
-            padding: 4rem 2rem;
-            text-align: center;
+        /* --- NAVIGATIE --- */
+        nav {
+            background-color: var(--section-bg);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
 
-        header h1 {
-            margin: 0;
-            font-size: 2.8rem;
+        .logo {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .menu a {
+            text-decoration: none;
+            color: var(--text-color);
+            margin-left: 1.5rem;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .menu a:hover {
+            color: var(--primary-color);
+        }
+
+        /* --- HERO BANNER (Bovenkant) --- */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-light) 100%);
+            color: white;
+            text-align: center;
+            padding: 6rem 2rem;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin: 0 0 10px 0;
             font-weight: 400;
             letter-spacing: 1px;
         }
 
-        header h2 {
-            color: white;
-            border: none;
-            font-size: 1.3rem;
+        .hero h2 {
+            font-size: 1.5rem;
             font-weight: 300;
-            margin-top: 10px;
+            margin: 0 0 30px 0;
+            opacity: 0.9;
+            border: none;
         }
 
-        /* Pagina container */
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 2rem;
-        }
-
-        /* Tussenkopjes */
-        h2 {
-            color: var(--primary-color);
-            border-bottom: 2px solid var(--secondary-color);
-            padding-bottom: 0.5rem;
-            margin-top: 2.5rem;
-            font-weight: 600;
-        }
-
-        /* Introductie tekst */
-        .intro-text {
-            font-size: 1.1rem;
-            background: white;
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
-        }
-
-        .highlight {
-            font-weight: bold;
-            color: var(--primary-color);
-        }
-
-        /* Behandelingen Grid */
-        .services-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 1.5rem;
-            margin-top: 2rem;
-        }
-
-        @media(min-width: 768px) {
-            .services-grid {
-                grid-template-columns: 1fr 1fr; /* Twee kolommen op grotere schermen */
-            }
-        }
-
-        .service-card {
-            background: white;
-            padding: 1.8rem;
-            border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.04);
-            border-left: 6px solid var(--primary-color);
-        }
-
-        .service-card h3 {
-            margin-top: 0;
-            color: var(--primary-color);
-            font-size: 1.2rem;
-        }
-
-        /* Praktische Info Grid */
-        .info-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 1.5rem;
-            margin-top: 2rem;
-        }
-
-        @media(min-width: 768px) {
-            .info-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-        }
-
-        .info-box {
-            background: var(--secondary-color);
-            padding: 1.8rem;
-            border-radius: 8px;
-        }
-
-        .info-box h3 {
-            margin-top: 0;
-            color: var(--primary-color);
-        }
-
-        .info-box ul {
-            padding-left: 20px;
-            margin-bottom: 0;
-        }
-
-        .info-box li {
-            margin-bottom: 8px;
-        }
-
-        /* Ervaringen balk */
-        .ervaringen {
-            text-align: center;
-            font-style: italic;
-            color: var(--primary-color);
-            font-size: 1.1rem;
-            margin: 3rem 0;
-            padding: 1rem;
-            border-top: 1px solid var(--secondary-color);
-            border-bottom: 1px solid var(--secondary-color);
-        }
-
-        /* Contact knop */
-        .contact-btn {
+        /* Algemene Knoppen */
+        .btn {
             display: inline-block;
-            background-color: var(--primary-color);
-            color: white;
-            padding: 14px 28px;
+            background-color: white;
+            color: var(--primary-color);
+            padding: 15px 30px;
             text-decoration: none;
             border-radius: 30px;
             font-weight: bold;
-            margin-top: 20px;
-            transition: background 0.3s;
+            transition: all 0.3s;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
 
-        .contact-btn:hover {
-            background-color: #5a7052;
+        .btn:hover {
+            background-color: var(--bg-color);
+            transform: translateY(-2px);
         }
 
-        /* Footer */
+        .btn-solid {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .btn-solid:hover {
+            background-color: var(--primary-light);
+            color: white;
+        }
+
+        /* --- SECTIES ALGEMEEN --- */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            color: var(--primary-color);
+            font-size: 2.2rem;
+            margin-bottom: 3rem;
+            font-weight: 400;
+        }
+
+        /* --- INTRO & VISIE --- */
+        .intro-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3rem;
+        }
+
+        @media(min-width: 768px) {
+            .intro-grid { grid-template-columns: 1fr 1fr; }
+        }
+
+        .intro-text blockquote {
+            font-size: 1.3rem;
+            color: var(--primary-color);
+            font-style: italic;
+            border-left: 4px solid var(--accent-color);
+            padding-left: 1rem;
+            margin: 2rem 0;
+        }
+
+        /* --- BEHANDELINGEN --- */
+        .services-bg {
+            background-color: var(--section-bg);
+            padding: 4rem 0;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.02) inset;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        @media(min-width: 768px) {
+            .services-grid { grid-template-columns: 1fr 1fr; }
+        }
+
+        .service-card {
+            background: var(--bg-color);
+            padding: 2.5rem;
+            border-radius: 12px;
+            transition: transform 0.3s;
+            border: 1px solid var(--accent-color);
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        }
+
+        .service-card h3 {
+            color: var(--primary-color);
+            font-size: 1.4rem;
+            margin-top: 0;
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 0.5rem;
+        }
+
+        /* --- PRAKTISCHE INFO --- */
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        @media(min-width: 768px) {
+            .info-grid { grid-template-columns: 1fr 1fr; }
+        }
+
+        .info-item h4 {
+            color: var(--primary-color);
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .info-item p {
+            margin-top: 0;
+        }
+
+        /* --- EXTRA BALK --- */
+        .quote-bar {
+            background-color: var(--accent-color);
+            text-align: center;
+            padding: 3rem 2rem;
+            font-size: 1.2rem;
+            color: var(--primary-color);
+            font-style: italic;
+        }
+
+        /* --- FOOTER --- */
         footer {
-            background-color: var(--text-color);
+            background-color: #3b3b3b;
             color: white;
             text-align: center;
-            padding: 2rem;
-            margin-top: 4rem;
-            font-size: 0.9rem;
+            padding: 3rem 2rem;
+            font-size: 0.95rem;
         }
 
-        footer p {
-            margin: 5px 0;
-            opacity: 0.8;
-        }
+        footer p { margin: 5px 0; opacity: 0.8; }
     </style>
 </head>
 <body>
 
-    <header>
+    <nav>
+        <a href="#" class="logo">Ariëlle van Son</a>
+        <div class="menu">
+            <a href="#over-mij">Over mij</a>
+            <a href="#behandelingen">Behandelingen</a>
+            <a href="#praktisch">Praktisch</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+
+    <div class="hero">
         <h1>Ariëlle van Son</h1>
         <h2>Massage, Energetische therapie & Bewustzijn</h2>
-    </header>
-
-    <div class="container">
-        
-        <div class="intro-text">
-            <h2>Welkom in mijn praktijk</h2>
-            <p><strong>Praktijk voor volwassenen, kinderen en baby's</strong></p>
-            <p>Met aandacht, respect en zorg ondersteun ik graag jouw persoonlijk welzijn. De pure, helende energie via mijn handen is een hartverwarmende ervaring!</p>
-            <p>Je kunt bij mij terecht als je niet lekker in je vel zit, je lichamelijk, geestelijk en/of emotioneel meer in balans wilt komen, je stress/angst wilt verminderen, je in een moeilijke levensfase zit, je meer in verbinding met jezelf wilt komen of wanneer je lichamelijke klachten en/of pijn hebt.</p>
-            <p>Staat jouw hulpvraag hier niet genoemd of wil je gewoon eens ervaren wat een sessie voor jou kan betekenen? Voel je van harte welkom een sessie te komen ervaren. Het doel van een sessie is dat je meer harmonie, ontspanning, rust en levensenergie ervaart.</p>
-            <p><em>Ik werk intuïtief en met een groot invoelend vermogen. In overleg bespreken we welke van de onderstaande sessies op dit moment het best passend voor je is.</em></p>
-        </div>
-
-        <h2>Mogelijkheden & Sessies</h2>
-        
-        <div class="services-grid">
-            <div class="service-card">
-                <h3>Helende Verbinding Massage sessie</h3>
-                <p><strong>Van preconceptie tot de geboorte, jouw unieke geboortereis</strong></p>
-                <p>De ervaringen en emoties die je in de pre- en perinatale periode van je leven hebt opgedaan, zijn in je lichaamscellen opgeslagen. Deze kunnen een diepe imprint achterlaten (denk aan belemmerende overtuigingen of de verbinding met jezelf/ouders kwijtraken). Deze massage herstelt de belemmerende overtuigingen en aardse verbinding, zodat er ruimte is voor verandering.<br><em>Duur: maximaal 1½ uur.</em></p>
-            </div>
-
-            <div class="service-card">
-                <h3>Dharma Shamanic System</h3>
-                <p>Een combinatie van de traditionele healing methode van de Tibetaanse- en Aboriginal sjamanen. Een zuivere, natuurlijke en zachte manier van helen die je levensenergie weer vrij laat stromen. Het helpt bij het loslaten van stress, angst en emotioneel lijden, en brengt je terug naar je natuurlijke staat van zijn. Ontwikkeld door José Antonio Manchado.<br><em>Duur: maximaal 1½ uur.</em></p>
-            </div>
-
-            <div class="service-card">
-                <h3>Reconnective Healing® & The Reconnection</h3>
-                <p>Brengt je terug in jouw natuurlijke balans en activeert het zelfhelende vermogen. Werkt met frequenties (energie, licht en informatie) op fysiek, mentaal, emotioneel en spiritueel gebied. Tijdens een sessie word je niet aangeraakt; de uitkomst ontvouwt zich vanzelf. Veel mensen ervaren diepe rust, helderheid of fysieke verlichting.<br><em>Duur: maximaal 1½ uur.</em></p>
-            </div>
-
-            <div class="service-card">
-                <h3>Massage sessie</h3>
-                <p><strong>Voor lichamelijk en geestelijk welbevinden</strong></p>
-                <p>Gun en verwen jezelf met een massage die helemaal is afgestemd op jouw welzijn en op wat jij nodig hebt. Voel hoe spanning wegsmelt, energie weer gaat stromen en je spieren volledig ontspannen. Een liefdevol cadeau aan jezelf.<br><em>Kies voor 1 of 1½ uur volledige aandacht puur voor jezelf.</em></p>
-            </div>
-
-            <div class="service-card">
-                <h3>Shantala Babymassage</h3>
-                <p>Ik begeleid ouders in hoe zij het beste hun baby kunnen aanraken en masseren. Een liefdevolle, aandachtsvolle en laagdrempelige methode om als ouder en kind samen te ontspannen, plezier te hebben en jullie band te versterken. Voor ouders met baby's tussen ca. 6 weken en 9 maanden.</p>
-            </div>
-
-            <div class="service-card">
-                <h3>Training hand- en hoofdmassage</h3>
-                <p>Zeer geschikt voor mensen die werken (als vrijwilliger) in de zorg of als mantelzorger. Ik begeleid je in wat een prettige, fijne manier is om mensen te benaderen die een warme, aandachtsvolle aanraking hard nodig hebben.</p>
-            </div>
-        </div>
-
-        <div class="ervaringen">
-            "Ervaringen na een sessie: rust • bewustwording • in contact met jezelf • relaxed én energiek gevoel • inzichten • diepgang • voelen eigenwaarde • zeer diepe ontspanning."
-        </div>
-
-        <h2>Praktische Informatie</h2>
-
-        <div class="info-grid">
-            <div class="info-box">
-                <h3>Contact & Locatie</h3>
-                <p>Mijn sfeervolle praktijk bevindt zich in Holy Noord.</p>
-                <p><strong>Adres:</strong><br>
-                Amelandhoeve 15<br>
-                3137 GA Vlaardingen - (ZH)</p>
-                <p>Heeft u vragen of wilt u meer informatie? Neem gerust vrijblijvend contact op!</p>
-                <a href="mailto:ariellevanson@kpnmail.nl" class="contact-btn">Neem contact op</a>
-            </div>
-
-            <div class="info-box">
-                <h3>Tarieven & Tijden</h3>
-                <ul>
-                    <li><strong>Werkmomenten:</strong> Woensdag en vrijdag (overige dagen in overleg)</li>
-                    <li><strong>Wachtlijst:</strong> Nee</li>
-                    <li><strong>Prijs consult:</strong> € 69,- tot € 96,-</li>
-                    <li><strong>Duur:</strong> 60 of 90 minuten</li>
-                    <li><strong>Vergoeding:</strong> n.v.t.</li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="info-box" style="margin-top: 1.5rem;">
-            <h3>Achtergrond & Opleidingen</h3>
-            <ul>
-                <li>Dharma Shamanic System I <em>(Mundo Armonia Academy - José Antonio Manchado)</em></li>
-                <li>Helende Verbinding massage <em>(Instituut Jolanda Vleugel en praktijk Sada)</em></li>
-                <li>Reconnective Healing Practitioner <em>(Eric Pearl - grondlegger)</em></li>
-                <li>Energetisch massagetherapeut <em>(opleidingsinstituut IVS)</em></li>
-                <li>Shantalamassage docent <em>(N. de Lange / VSD)</em></li>
-                <li><strong>Beroepsvereniging:</strong> BMS (Belangenvereniging voor Beroepsbeoefenaars in de Massagebranche) & Mundo Armonia fam.</li>
-            </ul>
-        </div>
-
+        <br>
+        <a href="#contact" class="btn">Maak tijd voor jezelf</a>
     </div>
 
-    <footer>
-        <p>&copy; 2026 Ariëlle van Son - Energetisch Therapeut</p>
-        <p>Amelandhoeve 15, Vlaardingen</p>
-    </footer>
+    <div class="container" id="over-mij">
+        <h2 class="section-title">Welkom in mijn praktijk</h2>
+        
+        <div class="intro-grid">
+            <div class="intro-text">
+                <p><strong>Praktijk voor volwassenen, kinderen en baby's</strong></p>
+                <p>Met aandacht, respect en zorg ondersteun ik graag jouw persoonlijk welzijn. De pure, helende energie via mijn handen is een hartverwarmende ervaring!</p>
+                <p>Je kunt bij mij terecht als je niet lekker in je vel zit, je lichamelijk, geestelijk en/of emotioneel meer in balans wilt komen, je stress of angst wilt verminderen, of wanneer je lichamelijke klachten en pijn hebt.</p>
+                
+                <blockquote>
+                    "Het doel van een sessie is dat je meer harmonie, ontspanning, rust en levensenergie ervaart."
+                </blockquote>
+            </div>
+            
+            <div class="intro-text">
+                <h3>Mijn visie en werkwijze</h3>
+                <p>Ik werk intuïtief en met een groot invoelend vermogen. Staat jouw hulpvraag hier niet genoemd, of wil je gewoon eens ervaren wat een sessie voor jou kan betekenen? Voel je van harte welkom.</p>
+                <p>In het contact met jou kijken we samen naar wat jij op dat moment nodig hebt. In overleg bespreken we welke van de sessies en behandelingen het best passend voor je is.</p>
+                <p><em>Ervaringen van cliënten na een sessie: rust • bewustwording • in contact met jezelf • relaxed én energiek gevoel • inzichten • diepgang • voelen van eigenwaarde • zeer diepe ontspanning.</em></p>
+            </div>
+        </div>
+    </div>
 
-</body>
-</html>
+    <div class="services-bg" id="behandelingen">
+        <div class="container" style="padding-top: 0; padding-bottom: 0;">
+            <h2 class="section-title">Mijn Behandelingen</h2>
+            
+            <div class="services-grid">
+                
+                <div class="service-card">
+                    <h3>Helende Verbinding Massage</h3>
+                    <p><strong>Jouw unieke geboortereis</strong><br>
+                    De ervaringen en emoties uit je pre- en perinatale periode zijn in je cellen opgeslagen en kunnen een diepe imprint achterlaten (zoals belemmerende overtuigingen). Deze zachte massage herstelt de verbinding in jezelf en met anderen, zodat er ruimte ontstaat voor verandering.</p>
+                </div>
+
+                <div class="service-card">
+                    <h3>Dharma Shamanic System</h3>
+                    <p>Een zuivere, natuurlijke manier van helen die je levensenergie weer vrij laat stromen. Gebaseerd op traditionele methoden van Tibetaanse en Aboriginal sjamanen. Het helpt bij het loslaten van stress, angst en emotioneel lijden, en brengt je terug naar je authentieke zelf.</p>
+                </div>
+
+                <div class="service-card">
+                    <h3>Reconnective Healing®</h3>
+                    <p>Deze vorm van healing richt zich op jou als geheel en activeert je zelfhelende vermogen via frequenties van energie, licht en informatie. Tijdens een sessie word je niet aangeraakt. De uitkomst ontvouwt zich vanzelf; veel mensen ervaren na afloop diepe rust en helderheid.</p>
+                </div>
+
+                <div class="service-card">
+                    <h3>Klassieke Massage sessie</h3>
+                    <p><strong>Voor lichamelijk & geestelijk welbevinden</strong><br>
+                    Gun jezelf een massage die helemaal is afgestemd op wat jij nodig hebt. Voel hoe spanning wegsmelt en je spieren ontspannen. Een liefdevol cadeau aan jezelf in elke fase van je leven.</p>
+                </div>
+
+                <div class="service-card">
+                    <h3>Shantala Babymassage</h3>
+                    <p>Ik begeleid ouders in het liefdevol aanraken en masseren van hun baby (6 weken tot 9 maanden). Een prachtige, laagdrempelige manier om samen te ontspannen en jullie band te versterken.</p>
+                </div>
+
+                <div class="service-card">
+                    <h3>Training hand- & hoofdmassage</h3>
+                    <p>Zeer geschikt voor mensen in de zorg of mantelzorgers. Leer op een fijne, respectvolle manier mensen benaderen die warme en aandachtsvolle aanraking hard nodig hebben.</p>
