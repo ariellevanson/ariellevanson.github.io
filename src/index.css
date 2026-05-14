@@ -1,0 +1,115 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Warm editorial wellness palette */
+    --background: 35 30% 97%;
+    --foreground: 270 10% 18%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 270 10% 18%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 270 10% 18%;
+
+    --primary: 272 22% 42%;
+    --primary-foreground: 35 40% 98%;
+    --primary-glow: 280 35% 70%;
+
+    --secondary: 32 35% 92%;
+    --secondary-foreground: 272 22% 30%;
+
+    --muted: 30 25% 94%;
+    --muted-foreground: 270 8% 42%;
+
+    --accent: 280 30% 90%;
+    --accent-foreground: 272 30% 30%;
+
+    --destructive: 0 70% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 30 20% 88%;
+    --input: 30 20% 88%;
+    --ring: 272 22% 42%;
+
+    --radius: 0.25rem;
+
+    /* Brand specifics */
+    --cream: 35 40% 96%;
+    --plum-deep: 275 25% 22%;
+    --gold: 35 55% 60%;
+
+    --gradient-hero: linear-gradient(135deg, hsl(275 25% 22% / 0.55), hsl(272 30% 35% / 0.35));
+    --gradient-soft: linear-gradient(180deg, hsl(35 30% 97%) 0%, hsl(32 35% 92%) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(280 30% 90%), hsl(35 40% 96%));
+
+    --shadow-soft: 0 10px 40px -15px hsl(275 25% 22% / 0.18);
+    --shadow-elevated: 0 30px 80px -25px hsl(275 25% 22% / 0.28);
+    --shadow-ring: 0 0 0 1px hsl(30 20% 88%);
+
+    --transition-smooth: cubic-bezier(0.22, 1, 0.36, 1);
+
+    --sidebar-background: 35 30% 97%;
+    --sidebar-foreground: 270 10% 18%;
+    --sidebar-primary: 272 22% 42%;
+    --sidebar-primary-foreground: 35 40% 98%;
+    --sidebar-accent: 30 25% 94%;
+    --sidebar-accent-foreground: 272 22% 30%;
+    --sidebar-border: 30 20% 88%;
+    --sidebar-ring: 272 22% 42%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', system-ui, sans-serif;
+    font-weight: 400;
+    line-height: 1.7;
+  }
+  h1, h2, h3, h4, .font-display {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    line-height: 1.15;
+  }
+}
+
+@layer components {
+  .container-prose {
+    @apply mx-auto px-6 md:px-10;
+    max-width: 1200px;
+  }
+  .eyebrow {
+    @apply uppercase tracking-[0.25em] text-xs font-medium text-primary/80;
+  }
+  .divider-line {
+    @apply inline-block w-12 h-px bg-primary/40 align-middle mx-3;
+  }
+  .link-underline {
+    position: relative;
+  }
+  .link-underline::after {
+    content: '';
+    position: absolute;
+    left: 0; bottom: -4px;
+    width: 100%;
+    height: 1px;
+    background: currentColor;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.5s var(--transition-smooth);
+  }
+  .link-underline:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+}
