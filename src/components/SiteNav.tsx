@@ -29,7 +29,7 @@ const SiteNav = () => {
     >
       <nav className="container-prose flex items-center justify-between">
         <a href="#top" className="font-display text-2xl tracking-wide text-foreground">
-          Ariëlle <span className="text-primary">van Son</span>
+          Ariëlle <span className="text-foreground">van Son</span>
         </a>
         <ul className="hidden md:flex items-center gap-8 text-sm">
           {links.map((l) => (

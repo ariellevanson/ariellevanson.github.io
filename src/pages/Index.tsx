@@ -42,26 +42,7 @@ const services = [
   },
 ];
 
-const testimonials = [
-  {
-    quote:
-      "Na één sessie voelde ik een diepe rust die ik in jaren niet meer had ervaren. Ariëlle werkt met enorme sensitiviteit.",
-    name: "Marieke",
-    role: "Cliënt",
-  },
-  {
-    quote:
-      "De zachte aanpak en wijze begeleiding hebben mij geholpen om weer in contact te komen met mezelf. Hartverwarmend.",
-    name: "Joost",
-    role: "Cliënt",
-  },
-  {
-    quote:
-      "Een sessie bij Ariëlle is een geschenk. Ik kwam binnen met spanning en vertrok met helderheid en energie.",
-    name: "Sanne",
-    role: "Cliënt",
-  },
-];
+const testimonials: Array<{ quote: string; name: string; role: string }> = [];
 
 const Index = () => {
   return (
@@ -240,20 +221,32 @@ const Index = () => {
             </h2>
           </div>
           <div className="grid md:grid-cols-3 gap-8">
-            {testimonials.map((t) => (
-              <figure
-                key={t.name}
-                className="bg-background p-10 shadow-soft border-t-2 border-gold/60"
-              >
-                <p className="font-display text-3xl text-primary leading-none">"</p>
-                <blockquote className="mt-2 font-display italic text-xl text-foreground/85 leading-snug">
-                  {t.quote}
+            {testimonials.length > 0 ? (
+              testimonials.map((t) => (
+                <figure
+                  key={t.name}
+                  className="bg-background p-10 shadow-soft border-t-2 border-gold/60"
+                >
+                  <p className="font-display text-3xl text-primary leading-none">"</p>
+                  <blockquote className="mt-2 font-display italic text-xl text-foreground/85 leading-snug">
+                    {t.quote}
+                  </blockquote>
+                  <figcaption className="mt-6 text-xs uppercase tracking-[0.2em] text-foreground/60">
+                    {t.name} · {t.role}
+                  </figcaption>
+                </figure>
+              ))
+            ) : (
+              <figure className="bg-background p-10 shadow-soft border-t-2 border-gold/60 md:col-span-3 text-center">
+                <p className="font-display text-3xl text-primary leading-none">⭐ ⭐ ⭐ ⭐ ⭐</p>
+                <blockquote className="mt-4 font-display italic text-xl text-foreground/85 leading-snug">
+                  4.9 van 5 sterren op Google Maps
                 </blockquote>
                 <figcaption className="mt-6 text-xs uppercase tracking-[0.2em] text-foreground/60">
-                  {t.name} · {t.role}
+                  Google Maps beoordeling
                 </figcaption>
               </figure>
-            ))}
+            )}
           </div>
         </div>
       </section>
@@ -305,65 +298,23 @@ const Index = () => {
               Maak tijd voor jezelf.
             </h2>
             <p className="mt-6 text-foreground/75">
-              Wil je een sessie inplannen of heb je een vraag? Stuur gerust een
-              bericht. Ik neem binnen één werkdag contact met je op.
+              Wil je een sessie inplannen of heb je een vraag? Je kunt mij bereiken via telefoon of e-mail.
             </p>
             <div className="mt-10 space-y-5 text-foreground/80">
               <div>
                 <p className="text-xs uppercase tracking-[0.2em] text-primary/80">Telefoon</p>
-                <a href="tel:+31600000000" className="font-display text-2xl link-underline">+31 6 00 00 00 00</a>
+                <a href="tel:+31104749545" className="font-display text-2xl link-underline">+31 (0)10 474 9545</a>
               </div>
               <div>
                 <p className="text-xs uppercase tracking-[0.2em] text-primary/80">E-mail</p>
-                <a href="mailto:info@arielle-vanson.nl" className="font-display text-2xl link-underline">
-                  info@arielle-vanson.nl
-                </a>
+                <a href="mailto:ariellevanson@kpnmail.nl" className="font-display text-2xl link-underline">ariellevanson@kpnmail.nl</a>
               </div>
               <div>
                 <p className="text-xs uppercase tracking-[0.2em] text-primary/80">Praktijk</p>
-                <p className="font-display text-2xl">Praktijkadres, Nederland</p>
+                <p className="font-display text-2xl">Amelandhoeve 15, 3137GA Vlaardingen</p>
               </div>
             </div>
           </div>
-
-          <form
-            onSubmit={(e) => {
-              e.preventDefault();
-              window.location.href = "mailto:info@arielle-vanson.nl";
-            }}
-            className="bg-secondary p-8 md:p-12 shadow-soft space-y-5"
-          >
-            <div>
-              <label className="text-xs uppercase tracking-[0.2em] text-primary/80">Naam</label>
-              <input
-                required
-                type="text"
-                className="w-full mt-2 bg-transparent border-b border-foreground/20 py-2 focus:border-primary outline-none transition-colors"
-              />
-            </div>
-            <div>
-              <label className="text-xs uppercase tracking-[0.2em] text-primary/80">E-mail</label>
-              <input
-                required
-                type="email"
-                className="w-full mt-2 bg-transparent border-b border-foreground/20 py-2 focus:border-primary outline-none transition-colors"
-              />
-            </div>
-            <div>
-              <label className="text-xs uppercase tracking-[0.2em] text-primary/80">Bericht</label>
-              <textarea
-                required
-                rows={5}
-                className="w-full mt-2 bg-transparent border-b border-foreground/20 py-2 focus:border-primary outline-none transition-colors resize-none"
-              />
-            </div>
-            <button
-              type="submit"
-              className="w-full px-8 py-4 bg-primary text-primary-foreground text-xs uppercase tracking-[0.25em] hover:bg-primary/90 transition-all hover:translate-y-[-2px]"
-            >
-              Verstuur bericht
-            </button>
-          </form>
         </div>
       </section>
 
@@ -383,8 +334,8 @@ const Index = () => {
           </div>
           <div className="text-sm">
             <p className="uppercase tracking-[0.2em] text-xs text-primary-foreground/60 mb-3">Contact</p>
-            <a className="block link-underline" href="mailto:info@arielle-vanson.nl">info@arielle-vanson.nl</a>
-            <a className="block link-underline mt-1" href="tel:+31600000000">+31 6 00 00 00 00</a>
+            <a className="block link-underline" href="mailto:ariellevanson@kpnmail.nl">ariellevanson@kpnmail.nl</a>
+            <a className="block link-underline mt-1" href="tel:+31104749545">+31 (0)10 474 9545</a>
           </div>
         </div>
         <div className="container-prose mt-10 pt-6 border-t border-primary-foreground/10 text-xs text-primary-foreground/50 flex flex-wrap justify-between gap-4">
