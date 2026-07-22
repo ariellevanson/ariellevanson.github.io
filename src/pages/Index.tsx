@@ -329,7 +329,7 @@ const Index = () => {
           </div>
           <div className="text-sm">
             <p className="uppercase tracking-[0.2em] text-xs text-primary-foreground/60 mb-3">Praktijk</p>
-            <p>Op afspraak — di t/m za</p>
+            <p>Op afspraak</p>
             <p>Aangesloten bij beroepsvereniging</p>
           </div>
           <div className="text-sm">
